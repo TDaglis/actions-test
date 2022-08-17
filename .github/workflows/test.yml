@@ -7,9 +7,6 @@ on:
         description: Dummy input
         required: true
         type: string
-        options:
-          - "test"
-          - "something"
 
 jobs:
   dummy:
