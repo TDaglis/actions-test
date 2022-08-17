@@ -1,0 +1,24 @@
+name: Test available context
+
+on:
+  workflow_call:
+    inputs:
+      my_input:
+        description: Dummy input
+        required: true
+        type: string
+
+jobs:
+  dummy:
+    environment:
+      name: ${{ inputs.my_input }}
+    runs-on: ubuntu-latest
+    env:
+      CUSTOM_ENV: ${{ inputs.my_input }}
+
+    steps:
+      - name: Test
+        run: |
+          env
+          echo "Full event"
+          cat ${{ github.event_path }}
